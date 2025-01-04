@@ -220,6 +220,6 @@ footer {
 
 @media (max-width: 768px) {
     section#about {
-        margin-top: 120px; /* Подгоняем под высоту шапки */
+        margin-top: 150px; /* Подгоняем под высоту шапки */
     }
 }
