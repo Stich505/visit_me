@@ -29,9 +29,8 @@ body {
     }
 }
 
-/* Стили для шапки */
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -40,20 +39,31 @@ header {
     text-align: center;
     padding: 20px 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    margin-bottom: 30px;
 }
 
-section#about::before {
-    content: '';
-    display: block;
-}
-
-
-section:first-of-type {
-    margin-top: 153px; /* Замените это значение на точную высоту шапки */
+section#about {
+    margin-top: 150px; /* Указать высоту шапки */
 }
 
 
+/* Убираем анимацию для первого блока */
+section#about {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+}
+
+/* Анимация остается для всех остальных секций */
+section:not(#about) {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible:not(#about) {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 #about h2 {
     margin-top: -20px;
