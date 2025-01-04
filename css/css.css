@@ -234,91 +234,59 @@ footer {
 
 /*БУРГЕР*/
 
-/* Скрываем меню на мобильных */
-#nav-menu {
-    display: none;
-    position: absolute;
-    top: 70px; /* Высота шапки */
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
-
-#nav-menu a {
-    display: block;
-    margin: 10px 0;
-    font-size: 1.2em;
-    color: #00ff00;
-    text-decoration: none;
-}
-
-#nav-menu a:hover {
-    color: #ffcc00;
-}
-
-/* Стили для кнопки-бургера */
-#burger-menu {
-    display: none;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 30px;
-    height: 25px;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-#burger-menu span {
-    display: block;
-    width: 100%;
-    height: 4px;
-    background-color: #fff;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-/* Анимация крестика */
-#burger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-}
-
-#burger-menu.active span:nth-child(2) {
-    opacity: 0;
-}
-
-#burger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-}
-
-/* Показ меню */
-#nav-menu.active {
-    display: block;
-    animation: slideDown 0.4s ease forwards;
-}
-
-/* Анимация для меню */
-@keyframes slideDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Показываем бургер на мобильных */
+/* Убираем меню на мобильных */
 @media (max-width: 768px) {
+    #nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px; /* Высота шапки */
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
     #burger-menu {
-        display: block;
+        display: block; /* Показываем бургер на мобильных */
     }
 
     nav {
-        display: none; /* Убираем меню в шапке */
+        display: none; /* Убираем основное меню */
+    }
+}
+
+/* Показываем меню на ПК */
+@media (min-width: 769px) {
+    #nav-menu {
+        display: flex; /* Делаем меню видимым */
+        justify-content: center; /* Центрируем элементы */
+        gap: 20px; /* Расстояние между элементами */
+        position: static; /* Отменяем абсолютное позиционирование */
+        background-color: transparent; /* Убираем фон */
+        padding: 0;
+        box-shadow: none;
+    }
+
+    #nav-menu a {
+        display: inline-block; /* Отображаем как встроенные элементы */
+        font-size: 1em;
+        color: #00ff00;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    #nav-menu a:hover {
+        color: #ffcc00;
+    }
+
+    #burger-menu {
+        display: none; /* Убираем бургер на ПК */
+    }
+
+    nav {
+        display: block; /* Показываем основное меню */
     }
 }
