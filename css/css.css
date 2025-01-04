@@ -1,0 +1,153 @@
+/* Общие стили */
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #00ff00, #ff0000, #000000, #0000ff, #ff00ff);
+    background-size: 500% 500%;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    animation: gradientShift 30s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Стили для шапки */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+section:first-of-type {
+    margin-top: 153px; /* Замените это значение на точную высоту шапки */
+}
+
+
+
+#about h2 {
+    margin-top: -20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0 15px;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #00ff00;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+.disabled {
+    color: #555;
+    pointer-events: none;
+}
+
+/* Стили для секций */
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #00ff00;
+}
+
+section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+
+@keyframes textGradientShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 25% 50%;
+    }
+    50% {
+        background-position: 50% 100%;
+    }
+    75% {
+        background-position: 75% 50%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+/* Стили для футера */
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-size: 1em;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Анимация */
+.placeholder {
+    opacity: 0.5;
+    color: #888;
+}
