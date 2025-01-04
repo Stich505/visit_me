@@ -223,3 +223,11 @@ footer {
         margin-top: 150px; /* Подгоняем под высоту шапки */
     }
 }
+
+@media (max-width: 768px) {
+    section {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
