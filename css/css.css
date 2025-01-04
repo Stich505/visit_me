@@ -48,7 +48,7 @@ section#about {
 /* Убираем анимацию для первого блока */
 section#about {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
     transition: none;
 }
 
