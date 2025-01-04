@@ -45,7 +45,6 @@ section#about {
     margin-top: 150px; /* Указать высоту шапки */
 }
 
-
 /* Убираем анимацию для первого блока */
 section#about {
     opacity: 1;
@@ -168,4 +167,59 @@ footer {
 .placeholder {
     opacity: 0.5;
     color: #888;
+}
+
+
+/*МОБИЛКИ*/
+@media (max-width: 768px) {
+    /* Шапка */
+    header {
+        padding: 15px 10px;
+        font-size: 0.9em;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav a {
+        font-size: 0.9em;
+        margin: 0 10px;
+    }
+
+    /* Первый блок */
+    section#about {
+        margin-top: 100px; /* Учитываем высоту шапки */
+        padding: 20px 10px;
+    }
+
+    section#about h2 {
+        font-size: 1.5em;
+    }
+
+    section#about p {
+        font-size: 0.95em;
+        line-height: 1.4;
+    }
+
+    /* Остальные секции */
+    section {
+        padding: 30px 15px;
+        font-size: 0.9em;
+    }
+
+    section h2 {
+        font-size: 1.6em;
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    section#about {
+        margin-top: 120px; /* Подгоняем под высоту шапки */
+    }
 }
