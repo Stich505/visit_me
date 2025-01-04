@@ -1,0 +1,324 @@
+/* Общие стили */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #00ff00, #ff0000, #000000, #0000ff, #ff00ff);
+    background-size: 500% 500%;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    animation: gradientShift 30s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+section#about {
+    margin-top: 150px; /* Указать высоту шапки */
+}
+
+/* Убираем анимацию для первого блока */
+section#about {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+/* Анимация остается для всех остальных секций */
+section:not(#about) {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible:not(#about) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#about h2 {
+    margin-top: -20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0 15px;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #00ff00;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+.disabled {
+    color: #555;
+    pointer-events: none;
+}
+
+/* Стили для секций */
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #00ff00;
+}
+
+section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+
+@keyframes textGradientShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 25% 50%;
+    }
+    50% {
+        background-position: 50% 100%;
+    }
+    75% {
+        background-position: 75% 50%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+/* Стили для футера */
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-size: 1em;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Анимация */
+.placeholder {
+    opacity: 0.5;
+    color: #888;
+}
+
+
+/*МОБИЛКИ*/
+@media (max-width: 768px) {
+    /* Шапка */
+    header {
+        padding: 15px 10px;
+        font-size: 0.9em;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav a {
+        font-size: 0.9em;
+        margin: 0 10px;
+    }
+
+    /* Первый блок */
+    section#about {
+        margin-top: 100px; /* Учитываем высоту шапки */
+        padding: 20px 10px;
+    }
+
+    section#about h2 {
+        font-size: 1.5em;
+    }
+
+    section#about p {
+        font-size: 0.95em;
+        line-height: 1.4;
+    }
+
+    /* Остальные секции */
+    section {
+        padding: 30px 15px;
+        font-size: 0.9em;
+    }
+
+    section h2 {
+        font-size: 1.6em;
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    section#about {
+        margin-top: 150px; /* Подгоняем под высоту шапки */
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/*БУРГЕР*/
+
+/* Скрываем меню на мобильных */
+#nav-menu {
+    display: none;
+    position: absolute;
+    top: 70px; /* Высота шапки */
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#nav-menu a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #00ff00;
+    text-decoration: none;
+}
+
+#nav-menu a:hover {
+    color: #ffcc00;
+}
+
+/* Стили для кнопки-бургера */
+#burger-menu {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+#burger-menu span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Анимация крестика */
+#burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+
+#burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Показ меню */
+#nav-menu.active {
+    display: block;
+    animation: slideDown 0.4s ease forwards;
+}
+
+/* Анимация для меню */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Показываем бургер на мобильных */
+@media (max-width: 768px) {
+    #burger-menu {
+        display: block;
+    }
+
+    nav {
+        display: none; /* Убираем меню в шапке */
+    }
+}
