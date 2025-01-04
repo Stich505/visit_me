@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Анимация секций
     const sections = document.querySelectorAll('section');
     const options = {
         root: null,
@@ -23,10 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(section);
         }
     });
-});
 
-/*BURGER*/
-document.addEventListener('DOMContentLoaded', () => {
+    // Логика для бургер-меню
     const burger = document.getElementById('burger-menu');
     const menu = document.getElementById('nav-menu');
 
