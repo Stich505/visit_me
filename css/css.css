@@ -133,8 +133,6 @@ section p {
     line-height: 1.6;
 }
 
-
-
 @keyframes textGradientShift {
     0% {
         background-position: 0% 0%;
@@ -170,60 +168,60 @@ footer {
 }
 
 
-/*МОБИЛКИ*/
+/* МОБИЛКИ */
 @media (max-width: 768px) {
     /* Шапка */
     header {
         padding: 15px 10px;
         font-size: 0.9em;
     }
-
+    
     header h1 {
         font-size: 1.8em;
     }
-
+    
     nav a {
         font-size: 0.9em;
         margin: 0 10px;
     }
-
+    
     /* Первый блок */
     section#about {
-        margin-top: 100px; /* Учитываем высоту шапки */
+        margin-top: 100px; /* По умолчанию (без открытия меню) */
         padding: 20px 10px;
     }
-
+    
+    /* Если меню открыто (добавляем класс menu-open на body) */
+    body.menu-open section#about {
+        margin-top: 120px;
+    }
+    
     section#about h2 {
         font-size: 1.5em;
     }
-
+    
     section#about p {
         font-size: 0.95em;
         line-height: 1.4;
     }
-
+    
     /* Остальные секции */
     section {
         padding: 30px 15px;
         font-size: 0.9em;
     }
-
+    
     section h2 {
         font-size: 1.6em;
     }
-
+    
     footer {
         font-size: 0.8em;
         padding: 15px;
     }
 }
 
-@media (max-width: 768px) {
-    section#about {
-        margin-top: 150px; /* Подгоняем под высоту шапки */
-    }
-}
-
+/* Убираем анимацию для мобильных секций (если нужно) */
 @media (max-width: 768px) {
     section {
         opacity: 1;
@@ -232,93 +230,17 @@ footer {
     }
 }
 
-/*БУРГЕР*/
 
-/* Скрываем меню на мобильных */
+/* БУРГЕР */
+
+/* Горизонтальное меню для больших экранов */
 #nav-menu {
-    display: none;
-    position: absolute;
-    top: 70px; /* Высота шапки */
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    display: flex; /* Горизонтальное отображение */\n    justify-content: center; /* Центрируем ссылки */\n    align-items: center; /* Выравниваем по вертикали */\n    position: relative; /* Убираем фиксированное или абсолютное позиционирование */\n    background-color: transparent; /* Убираем фон */\n    width: auto; /* Ширина зависит от содержимого */\n    box-shadow: none; /* Без тени */\n    padding: 0; /* Без внутренних отступов */\n    z-index: auto;\n}\n\n#nav-menu a {\n    display: inline-block;\n    margin: 0 15px;\n    font-size: 1em;\n    color: #00ff00;\n    text-decoration: none;\n    transition: color 0.3s ease;\n}\n\n#nav-menu.active {\n    display: block;\n    background-color: rgba(0, 0, 0, 0.9);\n    animation: slideDown 0.4s ease forwards;\n    z-index: 1000;\n    position: absolute;\n    width: 100%;\n    top: 70px; /* Под шапкой */\n    left: 0;\n    padding: 20px 0;\n}\n\n#nav-menu a:hover {\n    color: #ffcc00;\n}\n\n/* Стили для кнопки-бургера */\n#burger-menu {\n    display: none;\n    position: absolute;\n    top: 20px;\n    right: 20px;\n    width: 30px;\n    height: 25px;\n    cursor: pointer;\n    z-index: 1001;\n}\n\n#burger-menu span {\n    display: block;\n    width: 100%;\n    height: 4px;\n    background-color: #fff;\n    margin: 5px 0;\n    transition: all 0.3s ease;\n}\n\n#burger-menu.active span:nth-child(1) {\n    transform: rotate(45deg) translateY(8px);\n}\n\n#burger-menu.active span:nth-child(2) {\n    opacity: 0;\n}\n\n#burger-menu.active span:nth-child(3) {\n    transform: rotate(-45deg) translateY(-8px);\n}\n\n/* Показываем бургер на мобильных */\n@media (max-width: 768px) {\n    #burger-menu {\n        display: block;\n    }\n\n    nav {\n        display: none; /* Скрываем меню в шапке */\n    }\n}
+
+    #content-wrapper {
+    margin-top: 150px;
 }
 
-#nav-menu a {
-    display: block;
-    margin: 10px 0;
-    font-size: 1.2em;
-    color: #00ff00;
-    text-decoration: none;
-}
-
-#nav-menu a:hover {
-    color: #ffcc00;
-}
-
-/* Стили для кнопки-бургера */
-#burger-menu {
-    display: none;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 30px;
-    height: 25px;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-#burger-menu span {
-    display: block;
-    width: 100%;
-    height: 4px;
-    background-color: #fff;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-/* Анимация крестика */
-#burger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-}
-
-#burger-menu.active span:nth-child(2) {
-    opacity: 0;
-}
-
-#burger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-}
-
-/* Показ меню */
-#nav-menu.active {
-    display: block;
-    animation: slideDown 0.4s ease forwards;
-}
-
-/* Анимация для меню */
-@keyframes slideDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Показываем бургер на мобильных */
-@media (max-width: 768px) {
-    #burger-menu {
-        display: block;
-    }
-
-    nav {
-        display: none; /* Убираем меню в шапке */
-    }
+#content-wrapper {
+    margin-top: 150px;
 }
