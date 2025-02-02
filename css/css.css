@@ -244,3 +244,29 @@ footer {
 #content-wrapper {
     margin-top: 150px;
 }
+
+@media (min-width: 769px) {
+    /* Скрываем бургер-меню на ПК */
+    #burger-menu {
+        display: none;
+    }
+    
+    /* Горизонтальное меню для ПК – задаём центрирование и сбрасываем позиционирование */
+    #nav-menu {
+        display: flex !important;
+        position: relative;
+        background-color: transparent;
+        width: auto;
+        padding: 0;
+        box-shadow: none;
+        z-index: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #nav-menu a {
+        display: inline-block;
+        margin: 0 15px;
+        font-size: 1em;
+    }
+}
